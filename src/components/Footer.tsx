@@ -1,4 +1,4 @@
-import { Mail, ShieldCheck } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,9 +36,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-glow">
-                <ShieldCheck className="h-7 w-7 text-white" />
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}driveguard-logo.png`}
+                alt="DriveGuard Logo"
+                className="h-12 w-12 object-contain drop-shadow-lg"
+              />
               <span className="text-2xl font-bold">
                 <span className="text-white">Drive</span>
                 <span className="text-primary">Guard</span>

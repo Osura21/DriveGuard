@@ -1,7 +1,7 @@
 import { Database, Monitor, Server, Smartphone } from "lucide-react";
-import driverBehavior from "@/assets/driver-behavior.jpg";
-import predictiveMaintenance from "@/assets/predictive-maintenance.jpg";
-import fuelEfficiency from "@/assets/fuel-efficiency.jpg";
+import aiPipelineImage from "@/assets/driveguard-ai-pipeline.png";
+import mobileAppImage from "@/assets/driveguard-mobile-app.png";
+import webInterfaceImage from "@/assets/driveguard-web-interface.png";
 
 const FinalOutput = () => {
   const outputs = [
@@ -9,19 +9,19 @@ const FinalOutput = () => {
       icon: Smartphone,
       title: "Driver Alert Mobile App",
       description: "A Flutter mobile experience for real-time risk display, sensor-aware alerts, and driver-facing safety feedback.",
-      image: fuelEfficiency,
+      image: mobileAppImage,
     },
     {
       icon: Server,
       title: "AI Risk Prediction Pipeline",
       description: "Four model modules fused into a dynamic risk-score layer for fatigue, drowsiness, road, weather, and steering behavior analysis.",
-      image: predictiveMaintenance,
+      image: aiPipelineImage,
     },
     {
       icon: Monitor,
       title: "Research Web Interface",
       description: "A clean React website presenting the abstract, literature review, milestones, team, results, and downloadable documents.",
-      image: driverBehavior,
+      image: webInterfaceImage,
     },
   ];
 

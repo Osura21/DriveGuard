@@ -1,0 +1,32 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#003B7E" stroke-width="8"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#E63946" stroke-width="2"/>
+  
+  <!-- Car body -->
+  <g transform="translate(100, 100)">
+    <!-- Car outline -->
+    <path d="M -35 -5 L -45 10 L -40 25 L 40 25 L 45 10 L 35 -5 Q 0 -15 -35 -5" 
+          fill="#003B7E" stroke="#E63946" stroke-width="2"/>
+    
+    <!-- Windshield -->
+    <path d="M -20 -2 L -25 8 L 0 5 L 25 8 L 20 -2" 
+          fill="#87CEEB" opacity="0.6"/>
+    
+    <!-- Wheels -->
+    <circle cx="-25" cy="25" r="6" fill="#003B7E" stroke="#E63946" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="6" fill="#003B7E" stroke="#E63946" stroke-width="1.5"/>
+    
+    <!-- Wheel rims -->
+    <circle cx="-25" cy="25" r="3" fill="none" stroke="#E63946" stroke-width="1"/>
+    <circle cx="25" cy="25" r="3" fill="none" stroke="#E63946" stroke-width="1"/>
+    
+    <!-- Shield accent -->
+    <path d="M 0 -20 L 15 -10 L 15 0 Q 0 8 -15 0 L -15 -10 Z" 
+          fill="none" stroke="#E63946" stroke-width="1.5" opacity="0.8"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="100" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" 
+        text-anchor="middle" fill="#003B7E">DRIVEGUARD</text>
+</svg>

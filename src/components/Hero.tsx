@@ -1,6 +1,6 @@
-import { Activity, ArrowRight, Camera, Gauge, Map, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBanner from "@/assets/hero-banner.jpg";
+import heroBanner from "@/assets/driveguard-main-banner.png";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -67,7 +67,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="hidden lg:block animate-slide-in-right">
+        {/* <div className="hidden lg:block animate-slide-in-right">
           <div className="rounded-lg border border-primary/20 bg-background/85 p-6 shadow-2xl backdrop-blur">
             <div className="mb-6 flex items-center justify-between">
               <div>
@@ -103,7 +103,7 @@ const Hero = () => {
               })}
             </div>
           </div>
-        </div>
+        </div> */}
         </div>
       </div>
     </section>

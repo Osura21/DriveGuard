@@ -1,6 +1,6 @@
 import { Activity, BellOff, Gauge, Scan, ShieldCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import resultsImage from "@/assets/results-impact.webp";
+import resultsImage from "@/assets/driveguard-results-impact.png";
 
 const Results = () => {
   const metrics = [

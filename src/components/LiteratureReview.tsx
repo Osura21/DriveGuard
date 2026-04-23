@@ -1,7 +1,7 @@
-import driverBehavior from "@/assets/driver-behavior.jpg";
-import predictiveMaintenance from "@/assets/predictive-maintenance.jpg";
-import weatherImpact from "@/assets/weather-impact.jpg";
-import fuelEfficiency from "@/assets/fuel-efficiency.jpg";
+import fatigueImage from "@/assets/driveguard-fatigue.png";
+import drowsinessImage from "@/assets/driveguard-drowsiness.png";
+import roadWeatherImage from "@/assets/driveguard-road-weather.png";
+import behaviorDeviationImage from "@/assets/driveguard-behavior-deviation.png";
 
 const LiteratureReview = () => {
   const reviews = [
@@ -9,25 +9,25 @@ const LiteratureReview = () => {
       title: "Fatigue Detection System for Long-Term Driver Monitoring",
       content:
         "Fatigue detection research shows that physiological indicators such as heart rate variability, combined with behavioral patterns, can identify driver impairment more reliably than visual observation alone during long driving periods.",
-      image: driverBehavior,
+      image: fatigueImage,
     },
     {
       title: "Multi-Sensor Driver Drowsiness Detection",
       content:
         "Multi-sensor drowsiness studies combine facial cues, SpO2, cabin temperature, and contextual signals to reduce false positives caused by lighting, camera angle, and individual driver differences.",
-      image: predictiveMaintenance,
+      image: drowsinessImage,
     },
     {
       title: "Road-Sign and Weather-Condition Monitoring",
       content:
         "Real-time traffic sign recognition with weather-aware speed and visibility analysis supports safer in-vehicle alerts, especially when environmental conditions change rapidly.",
-      image: weatherImpact,
+      image: roadWeatherImage,
     },
     {
       title: "Personalized Driver Behavioural Deviation Detection",
       content:
         "Personalized behavioral baselines help distinguish normal driver style from abnormal maneuvers, allowing anomaly detection models to provide more relevant and less intrusive warnings.",
-      image: fuelEfficiency,
+      image: behaviorDeviationImage,
     },
   ];
 

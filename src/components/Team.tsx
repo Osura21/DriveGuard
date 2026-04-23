@@ -1,4 +1,4 @@
-import { Mail, UserRound } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -11,13 +11,50 @@ const initials = (name: string) =>
     .join("") || "DG";
 
 const Team = () => {
+  const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
   const team = [
-    { name: "Samoda T.W.O", id: "IT22257468", role: "Fatigue Detection Module", email: "it22257468@my.sliit.lk" },
-    { name: "D.L.R Dilochana", id: "IT22211514", role: "Drowsiness Detection Module", email: "it22211514@my.sliit.lk" },
-    { name: "Pinsara T.H.A.K", id: "IT22255860", role: "Road & Weather Monitoring Module", email: "it22255860@my.sliit.lk" },
-    { name: "Senadheera S.C.C", id: "IT22134226", role: "Behavioral Deviation Detection Module", email: "it22134226@my.sliit.lk" },
-    { name: "MS. Manori Gamage", id: "Supervisor", role: "Project Supervisor", email: "manori.g@sliit.lk" },
-    { name: "MR. Nelum Amarasena", id: "Co-Supervisor", role: "Project Co-Supervisor", email: "nelum.a@sliit.lk" },
+    {
+      name: "Samoda T.W.O",
+      id: "IT22257468",
+      role: "Road & Weather Monitoring Module",
+      email: "IT22257468@my.sliit.lk",
+      image: assetUrl("team/it22257468.png"),
+    },
+    {
+      name: "D.L.R Dilochana",
+      id: "IT22211514",
+      role: "Fatigue Detection Module",
+      email: "IT22211514@my.sliit.lk",
+      image: assetUrl("team/it22211514.png"),
+    },
+    {
+      name: "Pinsara T.H.A.K",
+      id: "IT22255860",
+      role: "Drowsiness Detection Module",
+      email: "IT22255860@my.sliit.lk",
+      image: assetUrl("team/it22255860.png"),
+    },
+    {
+      name: "Senadheera S.C.C",
+      id: "IT22134226",
+      role: "Behavioral Deviation Detection Module",
+      email: "IT22134226@my.sliit.lk",
+      image: assetUrl("team/it22134226.png"),
+    },
+    {
+      name: "MS. Manori Gamage",
+      id: "Supervisor",
+      role: "Project Supervisor",
+      email: "manori.g@sliit.lk",
+      image: assetUrl("team/manori-gamage.jpg"),
+    },
+    {
+      name: "MR. Nelum Amarasena",
+      id: "Co-Supervisor",
+      role: "Project Co-Supervisor",
+      email: "nelum.a@sliit.lk",
+      image: assetUrl("team/nelum-amarasena.jpg"),
+    },
   ];
 
   return (
@@ -45,17 +82,23 @@ const Team = () => {
               </div>
 
               <CardContent className="relative -mt-14 text-center pt-0">
-                <div className="mx-auto mb-4 flex h-28 w-28 items-center justify-center rounded-full border-4 border-background bg-gradient-to-br from-primary to-primary-glow text-3xl font-bold text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
-                  {member.id === "Supervisor" || member.id === "Co-Supervisor" ? (
-                    <UserRound className="h-10 w-10" />
-                  ) : (
-                    initials(member.name)
-                  )}
-                </div>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="mx-auto mb-4 h-28 w-28 rounded-full border-4 border-background object-cover shadow-lg transition-transform duration-300 group-hover:scale-110"
+                  onError={(event) => {
+                    const img = event.currentTarget;
+                    img.onerror = null;
+                    img.src = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(initials(member.name))}`;
+                  }}
+                />
 
                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                 <p className="text-sm text-muted-foreground mb-2">{member.id}</p>
-                <p className="min-h-10 text-sm font-medium text-primary mb-5">{member.role}</p>
+                <p className="min-h-10 text-sm font-medium text-primary mb-3">{member.role}</p>
+                <p className="mb-5 text-xs text-muted-foreground break-all">{member.email}</p>
 
                 <Button
                   size="sm"
