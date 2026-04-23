@@ -70,7 +70,7 @@ const FinalOutput = () => {
             <div>
               <h3 className="text-2xl font-bold mb-3">System Architecture</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                The NeuroRide system integrates mobile sensor data collection, cloud-based machine learning processing,
+                The DriveGuard system integrates mobile sensor data collection, cloud-based machine learning processing,
                 and real-time analytics to deliver a comprehensive vehicle intelligence platform.
               </p>
             </div>

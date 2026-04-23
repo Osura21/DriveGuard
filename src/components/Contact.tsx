@@ -21,7 +21,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "neuroride@gmail.com",
+      content: "dr@gmail.com",
       detail: "We'll respond within 24 hours",
     },
     {
@@ -40,7 +40,7 @@ const Contact = () => {
             Contact <span className="text-primary">Us</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Get in touch with the NeuroRide team at SLIIT
+            Get in touch with the DriveGuard team at SLIIT
           </p>
         </div>
 

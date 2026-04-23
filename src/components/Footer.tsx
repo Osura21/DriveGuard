@@ -18,7 +18,7 @@ const Footer = () => {
       { label: "Results", href: "#contact" },
     ],
     contact: [
-      { label: "Email Us", href: "mailto:neuroride@gmail.com" },
+      { label: "Email Us", href: "mailto:driveguard@gmail.com" },
       { label: "Visit SLIIT", href: "https://www.sliit.lk" },
       { label: "GitHub", href: "https://github.com" },
       { label: "LinkedIn", href: "https://linkedin.com" },
@@ -38,10 +38,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="NeuroRide Logo" className="h-12 w-12" />
+              <img src={logo} alt="DriveGuard Logo" className="h-12 w-12" />
               <span className="text-2xl font-bold">
-                <span className="text-white">Neuro</span>
-                <span className="text-primary">Ride</span>
+                <span className="text-white">Drive</span>
+                <span className="text-primary">Guard</span>
               </span>
             </div>
             <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
@@ -66,7 +66,7 @@ const Footer = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:neuroride@gmail.com"
+                href="mailto:driveguard@gmail.com"
                 className="w-10 h-10 rounded-full bg-secondary-foreground/10 hover:bg-primary flex items-center justify-center transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -132,10 +132,10 @@ const Footer = () => {
         <div className="pt-8 border-t border-secondary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-secondary-foreground/70 text-sm text-center md:text-left">
-              © {currentYear} NeuroRide. Final Year Project - Sri Lanka Institute of Information Technology
+              © {currentYear} DriveGuard. Final Year Project - Sri Lanka Institute of Information Technology
             </p>
             <p className="text-secondary-foreground/70 text-sm flex items-center gap-2">
-              Built by the NeuroRide Team
+              Built by the DriveGuard Team
             </p>
           </div>
         </div>

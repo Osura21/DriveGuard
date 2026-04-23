@@ -35,7 +35,7 @@ const LiteratureReview = () => {
             Literature <span className="text-primary">Review</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Research foundations and technological innovations driving NeuroRide
+            Research foundations and technological innovations driving DriveGuard
           </p>
         </div>
 

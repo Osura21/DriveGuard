@@ -57,7 +57,7 @@ const Resources: React.FC = () => {
       }
 
       const content = await zip.generateAsync({ type: "blob" });
-      saveAs(content, "NeuroRide-Resources.zip");
+      saveAs(content, "DriveGuard-Resources.zip");
     } catch (e) {
       console.error(e);
       alert("Some files could not be downloaded. Please check that all PDF URLs are correct.");
