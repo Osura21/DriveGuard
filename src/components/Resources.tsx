@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FileText, Presentation, Download, Loader2 } from "lucide-react";
+import { Download, FileText, Loader2, Presentation } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import JSZip from "jszip";
@@ -10,33 +10,32 @@ type IconType = typeof FileText;
 type Item = {
   name: string;
   icon: IconType;
-  url: string; // public URL to the PDF
+  url: string;
 };
 
-const slugify = (s: string) =>
-  s
+const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
+const slugify = (value: string) =>
+  value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)+/g, "")
     .trim();
 
 const Resources: React.FC = () => {
-  // Place your PDFs in /public/resources and keep the filenames below in sync
   const documents: Item[] = [
-    { name: "Topic Assessment Form", icon: FileText, url: "/neuro-ride-hub/resources/topic-assessment-form.pdf" },
-    { name: "Project Proposal - IT21389924", icon: FileText, url: "/neuro-ride-hub/resources/proposal-it21389924.pdf" },
-    { name: "Project Proposal - IT21269820", icon: FileText, url: "/neuro-ride-hub/resources/proposal-it21269820.pdf" },
-    { name: "Project Proposal - IT21251382", icon: FileText, url: "/neuro-ride-hub/resources/proposal-it21251382.pdf" },
-    { name: "Project Proposal - IT21274534", icon: FileText, url: "/neuro-ride-hub/resources/proposal-it21274534.pdf" },
-    { name: "Final Report", icon: FileText, url: "/neuro-ride-hub/resources/final-report.pdf" },
-    { name: "Research Paper", icon: FileText, url: "/neuro-ride-hub/resources/research-paper.pdf" },
+    { name: "TAF Evaluation Merged Document", icon: FileText, url: assetUrl("resources/taf-evaluation-merged.pdf") },
+    { name: "Topic Assessment Form - 25-26J-291", icon: FileText, url: assetUrl("resources/taf-25-26j-291.pdf") },
+    { name: "Proposal Report - IT22134226", icon: FileText, url: assetUrl("resources/proposal-it22134226.pdf") },
+    { name: "Proposal Report - IT22211514", icon: FileText, url: assetUrl("resources/proposal-it22211514.pdf") },
+    { name: "Proposal Report - IT22255860", icon: FileText, url: assetUrl("resources/proposal-it22255860.pdf") },
+    { name: "Proposal Report - IT22257468", icon: FileText, url: assetUrl("resources/proposal-it22257468.pdf") },
   ];
-  
 
   const presentations: Item[] = [
-    { name: "Proposal Presentation", icon: Presentation, url: "/neuro-ride-hub/resources/proposal-presentation.pdf" },
-    { name: "Progress Presentation-1", icon: Presentation, url: "/neuro-ride-hub/resources/progress-presentation-1.pdf" },
-    { name: "Progress Presentation-2", icon: Presentation, url: "/neuro-ride-hub/resources/progress-presentation-2.pdf" },
+    { name: "Proposal Presentation - 25-26J-291", icon: Presentation, url: assetUrl("resources/proposal-presentation.pdf") },
+    { name: "Progress Presentation 1", icon: Presentation, url: assetUrl("resources/progress-presentation-1.pdf") },
+    { name: "Progress Presentation 2", icon: Presentation, url: assetUrl("resources/progress-presentation-2.pdf") },
   ];
 
   const allItems: Item[] = [...documents, ...presentations];
@@ -52,15 +51,14 @@ const Resources: React.FC = () => {
         if (!res.ok) throw new Error(`Failed to fetch ${item.url}`);
         const blob = await res.blob();
         const filenameFromUrl = item.url.split("/").pop();
-        const safeName = filenameFromUrl || `${slugify(item.name)}.pdf`;
-        zip.file(safeName, blob);
+        zip.file(filenameFromUrl || `${slugify(item.name)}.pdf`, blob);
       }
 
       const content = await zip.generateAsync({ type: "blob" });
       saveAs(content, "DriveGuard-Resources.zip");
-    } catch (e) {
-      console.error(e);
-      alert("Some files could not be downloaded. Please check that all PDF URLs are correct.");
+    } catch (error) {
+      console.error(error);
+      alert("Some files could not be downloaded. Please check that all PDF files exist in public/resources.");
     } finally {
       setZipping(false);
     }
@@ -75,10 +73,10 @@ const Resources: React.FC = () => {
     items: Item[];
     gradient: string;
   }) => (
-    <Card className="border-2 hover:border-primary transition-all duration-300 animate-scale-in">
+    <Card className="border-2 transition-all duration-300 hover:border-primary hover:shadow-xl animate-scale-in">
       <CardHeader>
         <CardTitle className="text-2xl flex items-center gap-3">
-          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+          <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center`}>
             {items[0].icon === FileText ? (
               <FileText className="h-6 w-6 text-white" />
             ) : (
@@ -90,22 +88,22 @@ const Resources: React.FC = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {items.map((item, index) => {
+          {items.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.name}
-                className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors group"
+                className="flex items-center justify-between gap-3 rounded-lg bg-muted/50 p-3 transition-colors hover:bg-muted group"
               >
-                <div className="flex items-center gap-3">
-                  <Icon className="h-5 w-5 text-primary" />
+                <div className="flex min-w-0 items-center gap-3">
+                  <Icon className="h-5 w-5 flex-shrink-0 text-primary" />
                   <span className="text-sm font-medium">{item.name}</span>
                 </div>
                 <Button
                   asChild
                   size="sm"
                   variant="ghost"
-                  className="group-hover:bg-primary group-hover:text-white transition-all"
+                  className="flex-shrink-0 transition-all group-hover:bg-primary group-hover:text-white"
                 >
                   <a href={item.url} download aria-label={`Download ${item.name}`}>
                     <Download className="h-4 w-4" />
@@ -123,22 +121,23 @@ const Resources: React.FC = () => {
     <section id="resources" className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3">Project Files</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-primary">Resources</span>
+            Research <span className="text-primary">Resources</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Access our research documents and presentations
+            Download DriveGuard reports, assessment documents, and progress presentations.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <ResourceCard title="Documents" items={documents} gradient="from-primary to-primary-glow" />
-          <ResourceCard title="Presentations" items={presentations} gradient="from-orange-500 to-amber-500" />
+          <ResourceCard title="Presentations" items={presentations} gradient="from-indigo-500 to-cyan-500" />
         </div>
 
         <div className="mt-12 text-center animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <p className="text-muted-foreground mb-6">
-            All documents are available in PDF format and can be downloaded for detailed review.
+            All available DriveGuard documents are stored in PDF format for easy evaluation.
           </p>
           <Button
             size="lg"
@@ -149,7 +148,7 @@ const Resources: React.FC = () => {
             {zipping ? (
               <>
                 <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                Preparing ZIP…
+                Preparing ZIP...
               </>
             ) : (
               <>

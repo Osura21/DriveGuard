@@ -1,31 +1,55 @@
-import { Brain, Wrench, Cloud, Fuel } from "lucide-react";
+import { BellRing, BrainCircuit, Camera, CloudSun, Gauge, HeartPulse, Route, ShieldAlert } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Features = () => {
   const features = [
     {
-      icon: Brain,
-      title: "Driver Behavior Analysis",
-      description: "Advanced AI algorithms classify driving styles using mobile sensor data (GPS, accelerometer), providing real-time insights into driving patterns and safety metrics.",
-      stats: "95% accuracy",
+      icon: HeartPulse,
+      title: "Fatigue Detection",
+      description: "Analyzes HRV time-domain features and behavioral cues to identify long-term fatigue patterns during driving.",
+      stats: "89.1% accuracy",
     },
     {
-      icon: Wrench,
-      title: "Predictive Maintenance",
-      description: "Forecast vehicle component failures before they occur based on driving patterns and historical data, reducing unexpected breakdowns and maintenance costs.",
-      stats: "70% cost reduction",
+      icon: Camera,
+      title: "Drowsiness Detection",
+      description: "Uses MobileNetV2 visual classification with SpO2 and cabin temperature inputs for stronger drowsiness decisions.",
+      stats: "91.3% accuracy",
     },
     {
-      icon: Cloud,
-      title: "Weather Impact Analysis",
-      description: "Real-time weather data integration provides adaptive safety recommendations, helping drivers navigate challenging environmental conditions with confidence.",
-      stats: "Real-time updates",
+      icon: CloudSun,
+      title: "Road & Weather Monitoring",
+      description: "Combines YOLOv8 traffic sign detection, GPS speed estimation, and weather API data for real-time in-vehicle alerts.",
+      stats: "88.4% mAP@0.5",
     },
     {
-      icon: Fuel,
-      title: "Fuel Efficiency Optimization",
-      description: "Regression models analyze driving behavior to provide actionable tips for optimizing fuel consumption, promoting sustainable and cost-effective driving.",
-      stats: "25% fuel savings",
+      icon: BrainCircuit,
+      title: "Personalized Behavior Model",
+      description: "Learns each driver's steering baseline and flags unusual maneuvers using ensemble anomaly detection.",
+      stats: "23.4% fewer false alerts",
+    },
+    {
+      icon: Gauge,
+      title: "10 Hz Risk Scoring",
+      description: "Fuses module outputs into a continuously updated scalar risk score for quick decision-making.",
+      stats: "94 ms latency",
+    },
+    {
+      icon: BellRing,
+      title: "Graduated Alerts",
+      description: "Triggers clean, severity-based warnings that help drivers understand the risk and react immediately.",
+      stats: "Live alerts",
+    },
+    {
+      icon: Route,
+      title: "Trip Review Dashboard",
+      description: "Presents route history, high-risk moments, alert causes, and safety trends for evaluators and supervisors.",
+      stats: "Clear reports",
+    },
+    {
+      icon: ShieldAlert,
+      title: "Proactive Accident Prevention",
+      description: "Moves from passive monitoring to early risk prediction for intelligent transportation safety.",
+      stats: "Safety first",
     },
   ];
 
@@ -33,11 +57,12 @@ const Features = () => {
     <section id="features" className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3">Platform Capabilities</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Key <span className="text-primary">Features</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Four interconnected modules working together for comprehensive vehicle intelligence
+            A complete safety workflow covering fatigue, drowsiness, road conditions, personalized behavior, and real-time risk alerts.
           </p>
         </div>
 
@@ -47,22 +72,20 @@ const Features = () => {
             return (
               <Card
                 key={feature.title}
-                className="border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-scale-in group bg-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="border-2 bg-card transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-2xl animate-scale-in group"
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Icon className="h-8 w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl mb-2">{feature.title}</CardTitle>
-                  <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-semibold">
+                  <div className="inline-block w-fit rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
                     {feature.stats}
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </CardContent>
               </Card>
             );

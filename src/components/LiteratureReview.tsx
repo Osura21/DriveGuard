@@ -6,44 +6,49 @@ import fuelEfficiency from "@/assets/fuel-efficiency.jpg";
 const LiteratureReview = () => {
   const reviews = [
     {
-      title: "Driver Behavior Analysis Systems",
-      content: "Modern research in autonomous vehicle systems shows a focus on deeply integrated, proprietary hardware. Our approach bridges this gap by utilizing accessible mobile sensor data to classify driving patterns and enhance safety for all vehicle types.",
+      title: "Fatigue Detection System for Long-Term Driver Monitoring",
+      content:
+        "Fatigue detection research shows that physiological indicators such as heart rate variability, combined with behavioral patterns, can identify driver impairment more reliably than visual observation alone during long driving periods.",
       image: driverBehavior,
     },
     {
-      title: "Predictive Maintenance Technologies",
-      content: "Traditional predictive maintenance relies on expensive onboard diagnostics. Our framework leverages machine learning algorithms to predict component failures based on driving patterns and historical data, making it accessible to older vehicles.",
+      title: "Multi-Sensor Driver Drowsiness Detection",
+      content:
+        "Multi-sensor drowsiness studies combine facial cues, SpO2, cabin temperature, and contextual signals to reduce false positives caused by lighting, camera angle, and individual driver differences.",
       image: predictiveMaintenance,
     },
     {
-      title: "Weather Impact on Vehicle Safety",
-      content: "Environmental conditions significantly affect driving safety. Our system integrates real-time weather data to provide adaptive safety recommendations, helping drivers make informed decisions in challenging conditions.",
+      title: "Road-Sign and Weather-Condition Monitoring",
+      content:
+        "Real-time traffic sign recognition with weather-aware speed and visibility analysis supports safer in-vehicle alerts, especially when environmental conditions change rapidly.",
       image: weatherImpact,
     },
     {
-      title: "Fuel Efficiency Optimization",
-      content: "Fuel consumption optimization has traditionally been a manual process. Our AI-driven approach analyzes driving patterns in real-time to provide actionable recommendations, reducing costs and environmental impact.",
+      title: "Personalized Driver Behavioural Deviation Detection",
+      content:
+        "Personalized behavioral baselines help distinguish normal driver style from abnormal maneuvers, allowing anomaly detection models to provide more relevant and less intrusive warnings.",
       image: fuelEfficiency,
     },
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="literature" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3">Research Foundation</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Literature <span className="text-primary">Review</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Research foundations and technological innovations driving DriveGuard
+            Four focused research areas that shape DriveGuard's multi-modal risk prediction pipeline.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {reviews.map((review, index) => (
-            <div
+            <article
               key={review.title}
-              className="group relative overflow-hidden rounded-2xl border-2 border-border hover:border-primary transition-all duration-300 animate-fade-in-up"
+              className="group relative overflow-hidden rounded-lg border-2 border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl animate-fade-in-up"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="aspect-video overflow-hidden">
@@ -53,15 +58,16 @@ const LiteratureReview = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="p-6 bg-card">
+              <div className="p-6">
+                <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary">
+                  0{index + 1}
+                </div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
                   {review.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {review.content}
-                </p>
+                <p className="text-muted-foreground leading-relaxed">{review.content}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

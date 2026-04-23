@@ -6,19 +6,19 @@ const About = () => {
     {
       icon: Target,
       title: "Objectives",
-      content: "To design a real-time monitoring platform that observes driver behavior, road conditions, vehicle motion, and environmental context, then predicts risk levels with clear and timely safety alerts.",
+      content: "Develop a multi-modal driver and road monitoring system that fuses physiological signals, camera input, weather context, GPS speed, and steering behavior into a real-time risk score updated at 10 Hz.",
       gradient: "from-primary to-primary-glow",
     },
     {
       icon: AlertTriangle,
       title: "The Problem",
-      content: "Many road accidents are caused by a combination of risky driver actions, poor road awareness, distraction, fatigue, speed changes, and weather effects. Most drivers only receive warnings after danger is already close.",
+      content: "Fatigue, drowsiness, and distraction remain major accident factors, while many existing systems depend on a single sensor. That creates false positives, poor environmental robustness, and weak personalization for real drivers.",
       gradient: "from-sky-600 to-cyan-500",
     },
     {
       icon: Lightbulb,
       title: "Our Solution",
-      content: "DriveGuard delivers a practical safety layer that analyzes live sensor and vision signals, calculates a risk score, and presents warnings through a clean mobile and web experience for drivers, supervisors, and evaluators.",
+      content: "DriveGuard combines Random Forest fatigue detection, MobileNetV2 drowsiness recognition, YOLOv8 road-sign monitoring, and anomaly-based steering deviation detection into clear graduated alerts.",
       gradient: "from-primary-glow to-emerald-500",
     },
   ];
@@ -31,7 +31,7 @@ const About = () => {
             About <span className="text-primary">DriveGuard</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real-time monitoring for safer, smarter, and more predictable driving
+            A clean, research-driven system for proactive accident prevention in intelligent transportation
           </p>
         </div>
 

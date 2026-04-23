@@ -1,4 +1,4 @@
-import { Code, Database, Smartphone, Globe, Scan, Flame } from "lucide-react";
+import { BrainCircuit, Code, Globe, Scan, Smartphone, Workflow } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Technologies = () => {
@@ -6,57 +6,51 @@ const Technologies = () => {
     {
       icon: Code,
       title: "Python",
-      description:
-        "Core scripting for data pipelines, backend utilities, and ML glue code",
-      color: "from-blue-500 to-blue-600",
+      description: "Model training, data preprocessing, risk-score logic, and backend research utilities.",
+      color: "from-blue-500 to-blue-700",
     },
     {
       icon: Scan,
-      
-      title: "OpenCV",
-      description:
-        "Computer vision processing for detection, tracking, and on-device inference",
-      color: "from-cyan-500 to-cyan-600",
-    },
-    {
-      icon: Flame,
-      title: "Firebase",
-      description:
-        "Authentication, realtime database, and cloud functions for rapid delivery",
-      color: "from-amber-500 to-amber-600",
+      title: "YOLOv8",
+      description: "Real-time road-sign and road-context detection for in-vehicle safety alerts.",
+      color: "from-cyan-500 to-sky-600",
     },
     {
       icon: Smartphone,
       title: "Flutter",
-      description:
-        "High‑performance cross‑platform mobile apps with a native feel",
-      color: "from-sky-500 to-sky-600",
+      description: "Mobile application experience for sensor capture, alerts, and driver interaction.",
+      color: "from-sky-500 to-indigo-600",
     },
     {
       icon: Globe,
       title: "React (Web)",
-      description:
-        "Responsive web frontend with modern tooling and component libraries",
-      color: "from-indigo-500 to-indigo-600",
+      description: "Responsive project website and dashboard-style presentation interface.",
+      color: "from-indigo-500 to-blue-700",
     },
     {
-      icon: Database,
-      title: "Data Management",
-      description:
-        "Schema design, ETL, and lifecycle governance for analytics‑ready data",
-      color: "from-purple-500 to-purple-600",
+      icon: Workflow,
+      title: "TensorFlow",
+      description: "Deep learning workflow for visual classification and model deployment preparation.",
+      color: "from-orange-500 to-amber-600",
+    },
+    {
+      icon: BrainCircuit,
+      title: "MobileNetV2",
+      description: "Efficient CNN architecture for drowsiness classification on resource-aware devices.",
+      color: "from-emerald-500 to-teal-600",
     },
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="technologies" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-3">Implementation Stack</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Technologies <span className="text-primary">Used</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            The core stack powering the platform
+            The core tools behind DriveGuard's computer vision, mobile experience, and web presentation.
           </p>
         </div>
 
@@ -66,22 +60,18 @@ const Technologies = () => {
             return (
               <Card
                 key={tech.title}
-                className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-xl animate-fade-in group overflow-hidden"
+                className="relative overflow-hidden border-2 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl animate-fade-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div
-                  className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${tech.color} opacity-10 rounded-bl-full transform translate-x-16 -translate-y-16 group-hover:scale-150 transition-transform duration-500`}
-                />
+                <div className={`absolute right-0 top-0 h-32 w-32 translate-x-16 -translate-y-16 rounded-bl-full bg-gradient-to-br ${tech.color} opacity-10 transition-transform duration-500 group-hover:scale-150`} />
                 <CardHeader className="relative">
-                  <div
-                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
+                  <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br ${tech.color} transition-transform duration-300 group-hover:scale-110`}>
                     <Icon className="h-7 w-7 text-white" />
                   </div>
                   <CardTitle className="text-xl">{tech.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative">
-                  <p className="text-muted-foreground">{tech.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">{tech.description}</p>
                 </CardContent>
               </Card>
             );
