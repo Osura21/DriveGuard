@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +18,7 @@ const Navigation = () => {
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Features", href: "#features" },
+    { label: "Results", href: "#results" },
     { label: "Team", href: "#team" },
     { label: "Resources", href: "#resources" },
     { label: "Contact", href: "#contact" },
@@ -33,21 +33,23 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/70 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 animate-fade-in">
-            <img src={logo} alt="NeuroRide Logo" className="h-12 w-12" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-glow shadow-lg shadow-primary/20">
+              <ShieldCheck className="h-6 w-6 text-white" />
+            </div>
             <span className="text-2xl font-bold">
-              <span className="text-foreground">Neuro</span>
-              <span className="text-primary">Ride</span>
+              <span className="text-foreground">Drive</span>
+              <span className="text-primary">Guard</span>
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item, index) => (
               <button
                 key={item.href}

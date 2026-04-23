@@ -1,4 +1,4 @@
-import { Target, AlertCircle, Lightbulb } from "lucide-react";
+import { AlertTriangle, Lightbulb, Target } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const About = () => {
@@ -6,20 +6,20 @@ const About = () => {
     {
       icon: Target,
       title: "Objectives",
-      content: "To create a robust, integrated machine learning framework that operates with data from mobile phones and accessible sources. Our system comprises four interconnected modules: Driver Behavior Analysis, Predictive Maintenance, Weather Impact Analysis, and Fuel Efficiency Prediction.",
+      content: "To design a real-time monitoring platform that observes driver behavior, road conditions, vehicle motion, and environmental context, then predicts risk levels with clear and timely safety alerts.",
       gradient: "from-primary to-primary-glow",
     },
     {
-      icon: AlertCircle,
+      icon: AlertTriangle,
       title: "The Problem",
-      content: "Modern vehicles lack intelligent monitoring systems, creating significant gaps in road safety and operational efficiency. The average driver faces unmonitored driving habits that pose safety risks, unexpected mechanical failures resulting in costly downtime, and suboptimal fuel consumption with financial and environmental impacts.",
-      gradient: "from-orange-500 to-amber-500",
+      content: "Many road accidents are caused by a combination of risky driver actions, poor road awareness, distraction, fatigue, speed changes, and weather effects. Most drivers only receive warnings after danger is already close.",
+      gradient: "from-sky-600 to-cyan-500",
     },
     {
       icon: Lightbulb,
       title: "Our Solution",
-      content: "NeuroRide provides an affordable, scalable, and non-invasive solution using simple, widely available data sources. By leveraging mobile phone sensors (GPS, accelerometer), historical vehicle logs, and real-time weather APIs, we deliver advanced safety and efficiency features to all vehicles, including older and non-connected models.",
-      gradient: "from-primary-glow to-yellow-500",
+      content: "DriveGuard delivers a practical safety layer that analyzes live sensor and vision signals, calculates a risk score, and presents warnings through a clean mobile and web experience for drivers, supervisors, and evaluators.",
+      gradient: "from-primary-glow to-emerald-500",
     },
   ];
 
@@ -28,10 +28,10 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="text-primary">NeuroRide</span>
+            About <span className="text-primary">DriveGuard</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Bridging the technological divide with intelligent, accessible vehicle monitoring
+            Real-time monitoring for safer, smarter, and more predictable driving
           </p>
         </div>
 
