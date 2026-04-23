@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   // For GitHub Pages project sites (username.github.io/repo-name)
   // set base to the repository name when not in development mode.
-  base: mode === "development" ? "/" : "/neuro-ride-hub/",
+  base: mode === "development" ? "/" : "/DriveGuard/",
   server: {
     host: "::",
     port: 8080,
